@@ -33,6 +33,9 @@ namespace tigl
             // read attribute mapType
             if (tixihelper::TixiCheckAttribute(tixiHandle, xpath, "mapType")) {
                 m_mapType = tixihelper::TixiGetAttribute<std::string>(tixiHandle, xpath, "mapType");
+                if (m_mapType.empty()) {
+                    LOG(ERROR) << "Required attribute mapType is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required attribute mapType is missing at xpath " << xpath;
@@ -81,6 +84,9 @@ namespace tigl
             // read simpleContent 
             if (tixihelper::TixiCheckElement(tixiHandle, xpath)) {
                 m_simpleContent = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath);
+                if (m_simpleContent.empty()) {
+                    LOG(ERROR) << "Required element  is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required simpleContent  is missing at xpath " << xpath;

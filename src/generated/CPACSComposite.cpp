@@ -54,6 +54,9 @@ namespace tigl
             // read element name
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/name")) {
                 m_name = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/name");
+                if (m_name.empty()) {
+                    LOG(ERROR) << "Required element name is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element name is missing at xpath " << xpath;

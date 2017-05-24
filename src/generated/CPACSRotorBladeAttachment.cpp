@@ -88,6 +88,9 @@ namespace tigl
             // read element rotorBladeUID
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/rotorBladeUID")) {
                 m_rotorBladeUID = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/rotorBladeUID");
+                if (m_rotorBladeUID.empty()) {
+                    LOG(ERROR) << "Required element rotorBladeUID is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element rotorBladeUID is missing at xpath " << xpath;

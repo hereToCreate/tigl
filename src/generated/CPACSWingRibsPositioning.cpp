@@ -45,6 +45,9 @@ namespace tigl
             // read element ribReference
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/ribReference")) {
                 m_ribReference = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/ribReference");
+                if (m_ribReference.empty()) {
+                    LOG(ERROR) << "Required element ribReference is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element ribReference is missing at xpath " << xpath;
@@ -53,6 +56,9 @@ namespace tigl
             // read element ribStart
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/ribStart")) {
                 m_ribStart = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/ribStart");
+                if (m_ribStart.empty()) {
+                    LOG(ERROR) << "Required element ribStart is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element ribStart is missing at xpath " << xpath;
@@ -61,6 +67,9 @@ namespace tigl
             // read element ribEnd
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/ribEnd")) {
                 m_ribEnd = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/ribEnd");
+                if (m_ribEnd.empty()) {
+                    LOG(ERROR) << "Required element ribEnd is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element ribEnd is missing at xpath " << xpath;

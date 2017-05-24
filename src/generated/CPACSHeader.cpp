@@ -33,6 +33,9 @@ namespace tigl
             // read element name
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/name")) {
                 m_name = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/name");
+                if (m_name.empty()) {
+                    LOG(ERROR) << "Required element name is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element name is missing at xpath " << xpath;
@@ -46,6 +49,9 @@ namespace tigl
             // read element creator
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/creator")) {
                 m_creator = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/creator");
+                if (m_creator.empty()) {
+                    LOG(ERROR) << "Required element creator is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element creator is missing at xpath " << xpath;
@@ -62,6 +68,9 @@ namespace tigl
             // read element version
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/version")) {
                 m_version = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/version");
+                if (m_version.empty()) {
+                    LOG(ERROR) << "Required element version is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element version is missing at xpath " << xpath;
@@ -70,6 +79,9 @@ namespace tigl
             // read element cpacsVersion
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/cpacsVersion")) {
                 m_cpacsVersion = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/cpacsVersion");
+                if (m_cpacsVersion.empty()) {
+                    LOG(ERROR) << "Required element cpacsVersion is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element cpacsVersion is missing at xpath " << xpath;

@@ -59,6 +59,9 @@ namespace tigl
             // read element materialUID
             if (tixihelper::TixiCheckElement(tixiHandle, xpath + "/materialUID")) {
                 m_materialUID = tixihelper::TixiGetElement<std::string>(tixiHandle, xpath + "/materialUID");
+                if (m_materialUID.empty()) {
+                    LOG(ERROR) << "Required element materialUID is empty at xpath " << xpath;
+                }
             }
             else {
                 LOG(ERROR) << "Required element materialUID is missing at xpath " << xpath;
