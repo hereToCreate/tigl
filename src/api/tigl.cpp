@@ -2477,13 +2477,13 @@ TIGL_COMMON_EXPORT TiglReturnCode tiglFuselageGetSectionCenter(TiglCPACSConfigur
         // get ISO curve
         TopoDS_Shape curve = segment.getWireOnLoft(eta);
 
-         // compute center of the ISO curve
-         gp_Pnt centerPoint = GetCenterOfMass(curve);
+        // compute center of the ISO curve
+        gp_Pnt centerPoint = GetCenterOfMass(curve);
 
-         // assigne solution to return point
-         *pointX = centerPoint.X();
-         *pointY = centerPoint.Y();
-         *pointZ = centerPoint.Z();
+        // assigne solution to return point
+        *pointX = centerPoint.X();
+        *pointY = centerPoint.Y();
+        *pointZ = centerPoint.Z();
 
     }
     catch (const tigl::CTiglError& ex) {
